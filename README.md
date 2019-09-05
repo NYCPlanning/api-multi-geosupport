@@ -2,10 +2,16 @@
 
 This project will use docker compoase to create a multi container geosupport api that allows users to make queries against different versions of geosupport
 
+### Instructions:
+1.  make sure you have docker compose installed
 ```
-docker run -itd \
-    -p 5001:5001 \
-    -v `pwd`:/home/app \
-    -w /home/app \
-    continuumio/miniconda3:4.6.14 bash -c "pip install -r requirements.txt; python app.py"
+docker-compose up
 ```
+2.  to see if it's working, try: 
+```
+curl 0.0.0.0:5000/19b2/geocode/1b?house_number=120&street_name=broadway&borough=MN
+
+curl 0.0.0.0:5000/19b/geocode/1b?house_number=120&street_name=broadway&borough=MN
+```
+
+3. __Note:__ currently only 19a, 19b2, 19b are implimented, feel free to add more ...

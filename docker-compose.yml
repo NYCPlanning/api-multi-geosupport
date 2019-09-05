@@ -1,0 +1,28 @@
+version: '3'
+services:
+  reverse-proxy:
+    container_name: reverse-proxy
+    build: .
+    ports:
+      - "5000:8000"
+  19a:
+    image: sptkl/api-geosupport:19a
+    container_name: 19a
+    depends_on:
+      - reverse-proxy
+    environment:
+      - PORT=5000
+  19b:
+    image: sptkl/api-geosupport:19b
+    container_name: 19b
+    depends_on:
+      - reverse-proxy
+    environment:
+      - PORT=5000
+  19b2:
+    image: sptkl/api-geosupport:19b2
+    container_name: 19b2
+    depends_on:
+      - reverse-proxy
+    environment:
+      - PORT=5000

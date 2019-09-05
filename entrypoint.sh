@@ -1,0 +1,1 @@
+gunicorn app:app --workers=5 --threads=3 --bind=$PORT
