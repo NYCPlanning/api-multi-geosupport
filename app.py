@@ -4,7 +4,6 @@ import json
 import os
 app = Flask(__name__)
 
-print(SITE_NAME)
 @app.route('/')
 def index():
     return 'Flask is running!'
