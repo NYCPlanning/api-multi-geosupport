@@ -1,12 +1,8 @@
-from flask import Flask,request,redirect,Response, jsonify
+from flask import Flask, request, jsonify
 import requests
 import json
 import os
 app = Flask(__name__)
-SITE_NAME = {
-    '19a':f'http://19a:5000', 
-    '19b':f'http://19b:5000',
-    '19b2':f'http://19b2:5000'}
 
 print(SITE_NAME)
 @app.route('/')
@@ -17,9 +13,8 @@ def index():
 def proxy(path):
     version = path.split('/')[0]
     geo_path = '/'.join(path.split('/')[1:])
-    site_name = SITE_NAME.get(version)
     args = dict(request.args)
-    r = requests.get(f'{site_name}/{geo_path}', params=args)
+    r = requests.get(f'http://{version}:5000/{geo_path}', params=args)
     return jsonify(r.json())
 
 if __name__ == '__main__':

@@ -5,6 +5,20 @@ services:
     build: .
     ports:
       - "5000:8000"
+  19b2:
+    image: sptkl/api-geosupport:19b2
+    container_name: 19b2
+    depends_on:
+      - reverse-proxy
+    environment:
+      - PORT=5000
+  19b:
+    image: sptkl/api-geosupport:19b2
+    container_name: 19b
+    depends_on:
+      - reverse-proxy
+    environment:
+      - PORT=5000
   19a:
     image: sptkl/api-geosupport:19a
     container_name: 19a
@@ -12,16 +26,30 @@ services:
       - reverse-proxy
     environment:
       - PORT=5000
-  19b:
-    image: sptkl/api-geosupport:19b
-    container_name: 19b
+  18d:
+    image: sptkl/api-geosupport:18d
+    container_name: 18d
     depends_on:
       - reverse-proxy
     environment:
       - PORT=5000
-  19b2:
-    image: sptkl/api-geosupport:19b2
-    container_name: 19b2
+  18c:
+    image: sptkl/api-geosupport:18c
+    container_name: 18c
+    depends_on:
+      - reverse-proxy
+    environment:
+      - PORT=5000
+  18b:
+    image: sptkl/api-geosupport:18b
+    container_name: 18b
+    depends_on:
+      - reverse-proxy
+    environment:
+      - PORT=5000
+  18a:
+    image: sptkl/api-geosupport:18a
+    container_name: 18a
     depends_on:
       - reverse-proxy
     environment:
